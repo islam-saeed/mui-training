@@ -1,11 +1,15 @@
 'use client'
 import React, { useState } from 'react'
-import { CssBaseline, AppBar, Toolbar, Typography, Box, Button, Grid, TextField, InputAdornment, Select, MenuItem, InputLabel, InputBase, IconButton, Divider } from "@/node_modules/@mui/material/index";
+import { CssBaseline, AppBar, Toolbar, Typography, Box, Button, InputAdornment, Select, MenuItem, InputLabel, InputBase, IconButton, Divider } from "@/node_modules/@mui/material/index";
 import Image from "@/node_modules/next/image";
 import logo from '../public/Logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import {AiFillInstagram} from "react-icons/ai"
 import {FaFacebookF, FaTelegramPlane} from "react-icons/fa"
+import Grid from '@mui/material/Grid'
+import TextField from '@mui/material/TextField'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 
 
 type keyValuePair = {
@@ -13,43 +17,58 @@ type keyValuePair = {
     label: string
 }
 
-const currencies:Array<keyValuePair> = [
+const theme=createTheme({
+  palette: {
+    mode: 'dark'
+  }
+})
+
+const categories:Array<keyValuePair> = [
     {
       value: 'All Categories',
       label: 'All Categories',
-    },
+    }
+  ];
+const currencies:Array<keyValuePair> = [
     {
       value: 'USD',
-      label: '$',
+      label: 'USD',
     },
     {
       value: 'EUR',
-      label: '€',
+      label: 'EUR',
     },
     {
       value: 'BTC',
-      label: '฿',
+      label: 'BTC',
     },
     {
       value: 'JPY',
-      label: '¥',
+      label: 'JPY',
     },
+  ];
+const languages:Array<keyValuePair> = [
+    {
+      value: 'English',
+      label: 'English'
+    }
   ];
 
 const Navbar = () => {
     const [searchText, setSearchText] = useState('')
     const [category, setCategory] = useState('All Categories')
+    const [currency, setCurrency] = useState('USD')
   return (
     <>
         <CssBaseline />
-        <AppBar position="fixed" style={{
+        <AppBar position="sticky" style={{
                 backgroundColor: 'white',
                 color:"black"
             }}>
-            <Toolbar sx={{p:2}}>
+            <Toolbar sx={{p:2, pb:5}}>
                 <Grid container spacing={2} alignItems="center" justifyContent="space-between">
                     <Grid item>
-                        <Grid container spacing={2} alignItems="center">
+                        <Grid container spacing={2} alignItems="center" sx={{pt:2}}>
                             <Image src={logo} width={50} height={30} alt='logo' style={{marginRight: "10px"}}/>
                             <Typography variant="h5" style={{fontWeight: '700'}}>
                                 Luminae
@@ -70,13 +89,15 @@ const Navbar = () => {
                                             select
                                             defaultValue="All Categories"
                                             variant="standard"
+                                            sx={{
+                                              p:1,
+                                              border: 'none'
+                                            }}
                                             InputProps={{
                                                 disableUnderline: true,
-                                                width:'200px',
-                                                border: 'none'
                                             }}
                                             >
-                                            {currencies.map((option:keyValuePair) => (
+                                            {categories.map((option:keyValuePair) => (
                                                 <MenuItem key={option.value} value={option.value}>
                                                 {option.label}
                                                 </MenuItem>
@@ -114,6 +135,65 @@ const Navbar = () => {
                     </Grid>
                 </Grid>
             </Toolbar>
+            <ThemeProvider theme={theme}>
+              <Grid container spacing={2} alignItems='center' justifyContent='space-around' sx={{backgroundColor: '#262626', color:'white', height: '100px'}}>
+                <Grid item>
+                    <Grid container spacing={3} alignItems='center'>
+                        <Grid item>
+                            <Grid container spacing={1} direction='row' alignItems='center'>
+                              <Image src='categories.svg' alt='categories' width={25} height={25} />
+                              <Typography variant="h5" sx={{color:'white'}}>Categories</Typography>
+                            </Grid>
+                        </Grid>
+                        <Grid item>
+                          <TextField
+                            id="currencies-selection"
+                            select
+                            defaultValue="USD"
+                            variant="standard"
+                            sx={{
+                              p:1,
+                              border: 'none'
+                            }}
+                            InputProps={{
+                                disableUnderline: true,
+                            }}
+                          >
+                            {currencies.map((option:keyValuePair) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                                </MenuItem>
+                            ))}
+                          </TextField>
+                        </Grid>
+                        <Grid item>
+                          <TextField
+                            id="languages-selection"
+                            select
+                            defaultValue="English"
+                            variant="standard"
+                            sx={{
+                              p:1,
+                              border: 'none'
+                            }}
+                            InputProps={{
+                                disableUnderline: true,
+                            }}
+                            
+                          >
+                            {languages.map((option:keyValuePair) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                                </MenuItem>
+                            ))}
+                          </TextField>
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Grid item></Grid>
+                <Grid item></Grid>
+              </Grid>
+            </ThemeProvider>
         </AppBar>
     </>
   )
