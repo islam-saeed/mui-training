@@ -1,14 +1,21 @@
 'use client'
 import React, { useState } from 'react'
-import { CssBaseline, AppBar, Toolbar, Typography, Box, Button, InputAdornment, Select, MenuItem, InputLabel, InputBase, IconButton, Divider } from "@/node_modules/@mui/material/index";
+import { CssBaseline, AppBar, Toolbar, Box, Button, InputAdornment, Select, MenuItem, InputLabel, InputBase, IconButton, Divider } from "@/node_modules/@mui/material/index";
 import Image from "@/node_modules/next/image";
 import logo from '../public/Logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import {AiFillInstagram} from "react-icons/ai"
-import {FaFacebookF, FaTelegramPlane} from "react-icons/fa"
+import {FaFacebookF, FaTelegramPlane, FaRegHeart} from "react-icons/fa"
+import {FaRegUser} from "react-icons/fa6"
+import {BsBag} from "react-icons/bs"
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import Typography from '@mui/material/Typography'
+
+
+
+
 
 
 
@@ -190,8 +197,39 @@ const Navbar = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item></Grid>
-                <Grid item></Grid>
+                <Grid item>
+                  <Grid container spacing={2}>
+                    <Grid item>
+                      <Image src='/Men cosmetic.png' width={50} height={50} alt='discount' />
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="h6">Weekly Men&apos;s Toiletries Coupons.</Typography>
+                        <Typography variant="subtitle2">We extend exclusive discounts to our male clientele</Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  <Grid container spacing={4} alignItems='center'>
+                    <Grid item>
+                      <Grid container spacing={3} alignItems='center'>
+                        <FaRegUser />
+                        <Typography variant="h6">Sign in</Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid item>
+                      <Grid container spacing={3} alignItems='center'>
+                        <FaRegHeart />
+                        <Typography variant="h6">Favorites</Typography>
+                      </Grid>
+                    </Grid>
+                    <Grid item>
+                      <Grid container spacing={3} alignItems='center'>
+                        <BsBag />
+                        <Typography variant="h6">Cart</Typography>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </Grid>
             </ThemeProvider>
         </AppBar>
