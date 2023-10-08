@@ -143,7 +143,7 @@ const Navbar = () => {
                 </Grid>
             </Toolbar>
             <ThemeProvider theme={theme}>
-              <Grid container spacing={2} alignItems='center' justifyContent='space-around' sx={{backgroundColor: '#262626', color:'white', height: '100px'}}>
+              <Grid container spacing={2} alignItems='center' justifyContent='space-around' sx={{backgroundColor: '#262626', color:'white'}}>
                 <Grid item>
                     <Grid container spacing={3} alignItems='center'>
                         <Grid item>
@@ -198,7 +198,7 @@ const Navbar = () => {
                     </Grid>
                 </Grid>
                 <Grid item>
-                  <Grid container spacing={2}>
+                  <Grid container spacing={3}>
                     <Grid item>
                       <Image src='/Men cosmetic.png' width={50} height={50} alt='discount' />
                     </Grid>
@@ -209,23 +209,23 @@ const Navbar = () => {
                   </Grid>
                 </Grid>
                 <Grid item>
-                  <Grid container spacing={4} alignItems='center'>
+                  <Grid container spacing={10} alignItems='center'>
                     <Grid item>
-                      <Grid container spacing={3} alignItems='center'>
+                      <Grid container spacing={3} alignItems='center' direction='row'>
                         <FaRegUser />
-                        <Typography variant="h6">Sign in</Typography>
+                        <Typography variant="body1" sx={{ml:1}}>Sign in</Typography>
                       </Grid>
                     </Grid>
                     <Grid item>
-                      <Grid container spacing={3} alignItems='center'>
+                      <Grid container spacing={3} alignItems='center' direction='row'>
                         <FaRegHeart />
-                        <Typography variant="h6">Favorites</Typography>
+                        <Typography variant="body1" sx={{ml:1}}>Favorites</Typography>
                       </Grid>
                     </Grid>
                     <Grid item>
-                      <Grid container spacing={3} alignItems='center'>
+                      <Grid container spacing={3} alignItems='center' direction='row'>
                         <BsBag />
-                        <Typography variant="h6">Cart</Typography>
+                        <Typography variant="body1" sx={{ml:1}}>Cart</Typography>
                       </Grid>
                     </Grid>
                   </Grid>
