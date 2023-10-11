@@ -135,9 +135,9 @@ const Navbar = () => {
                     </Grid>
                     <Grid item>
                         <Grid container spacing={3}>
-                          <Grid><AiFillInstagram /></Grid>
-                          <Grid><FaFacebookF /></Grid>
-                          <Grid><FaTelegramPlane /></Grid>
+                          <Grid item><AiFillInstagram /></Grid>
+                          <Grid item><FaFacebookF /></Grid>
+                          <Grid item><FaTelegramPlane /></Grid>
                         </Grid>
                     </Grid>
                 </Grid>

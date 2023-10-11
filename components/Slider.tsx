@@ -1,23 +1,13 @@
 'use client'
 import React, { useState, useRef } from "react";
 import Slider from "react-slick";
+import SlideOffer from "./SlideOffer";
+import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 
 
 const Carousel = () => {
-  const [slides, setSlides] = useState([
-    {
-      id: 1,
-      image: "https://source.unsplash.com/300x300",
-    },
-    {
-      id: 2,
-      image: "https://source.unsplash.com/300x300",
-    },
-    {
-      id: 3,
-      image: "https://source.unsplash.com/300x300",
-    },
-  ]);
+
+  const [sliderRef, setSliderRef] = useState(null)
 
   const settings = {
     arrows: false,
@@ -29,11 +19,29 @@ const Carousel = () => {
   };
 
   return (
-    <Slider {...settings}>
-      {slides.map((slide) => (
-        <img key={slide.id} src={slide.image} alt={slide.image} width='300px' height='300px' />
-      ))}
+    <div className="slider" style={{position:'relative'}}>
+    <div className='controls'>
+          <FaChevronLeft onClick={sliderRef?.slickPrev} style={{
+            position: 'absolute',
+            top: '50%',
+            left: '100px',
+            cursor: 'pointer',
+            zIndex: '1'
+          }} />
+          <FaChevronRight onClick={sliderRef?.slickNext} style={{
+            position: 'absolute',
+            top: '50%',
+            right: '100px',
+            cursor: 'pointer',
+            zIndex: '1'
+          }} />
+    </div>
+    <Slider ref={setSliderRef} {...settings}>
+      <SlideOffer />
+      <SlideOffer />
+      <SlideOffer />
     </Slider>
+    </div>
   );
 };
 
