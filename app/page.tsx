@@ -1,6 +1,11 @@
 import Categories from "@/components/Categories";
-import FlashSaleCard from "@/components/FlashSaleCard";
+import ExploreCategory from "@/components/ExploreCategory";
+import FlashSale from "@/components/FlashSale";
 import Hero from "@/components/Hero";
+import Top from "@/components/Top";
+import Trending from "@/components/Trending";
+import Slider from "@/components/Slider"
+
 
 
 export default function Home() {
@@ -8,7 +13,12 @@ export default function Home() {
     <main>
       <Categories />
       <Hero />
-      <FlashSaleCard />
+      <FlashSale />
+      <Trending />
+      <Top />
+      <ExploreCategory />
+      <Slider />
+      <ExploreCategory />
     </main>
   )
 }
