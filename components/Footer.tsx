@@ -6,7 +6,7 @@ import { MenuItem, TextField } from '@mui/material';
 import Image from 'next/image';
 import {FaFacebookF, FaTelegramPlane} from "react-icons/fa"
 import {AiFillInstagram} from "react-icons/ai"
-import Newseletter from './newseletter';
+import Newseletter from './Newseletter';
 
 
 
@@ -28,31 +28,31 @@ const Footer = () => {
   return (
     <footer style={{position:'relative'}}>
         <Newseletter />
-        <Grid container spacing={15} justifyContent='center' sx={{backgroundColor:'#D1E2EB', height:'360px', mt:'200px'}}>
+        <Grid container spacing={15} justifyContent='center' sx={{backgroundColor:'#D1E2EB', height:'500px',pt:'100px', mt:'300px'}}>
           <Grid item>
             <Typography variant="h6" sx={{mb:'20px'}}>Company</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>About Us</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Our Store</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Contact us</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>About Us</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Our Store</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Contact us</Typography>
           </Grid>
           <Grid item>
             <Typography variant="h6" sx={{mb:'20px'}}>Career Opportunities</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Selling Programs</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Advertise</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Cooperation </Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Selling Programs</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Advertise</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Cooperation </Typography>
           </Grid>
           <Grid item>
             <Typography variant="h6" sx={{mb:'20px'}}>How to Buy</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Making Payments</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Delivery Options</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Buyer Protection</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>New User Guide</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Making Payments</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Delivery Options</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Buyer Protection</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>New User Guide</Typography>
           </Grid>
           <Grid item>
             <Typography variant="h6" sx={{mb:'20px'}}>Help</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Contacts Us</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>FAQ</Typography>
-            <Typography variant="subtitle1"  sx={{my:'10px'}}>Privacy Policy</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Contacts Us</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>FAQ</Typography>
+            <Typography variant="subtitle1"  sx={{my:'15px'}}>Privacy Policy</Typography>
           </Grid>
         </Grid>
         <Grid container justifyContent='space-between' alignItems='center' sx={{p:3, borderBottom:'2px solid #d9d9d9', mb:5}}>
