@@ -1,5 +1,5 @@
 'use client'
-import { Box, Card, CardContent, Paper, Typography, Grid } from '@mui/material'
+import { Box, Card, CardContent, Typography, Grid } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { FaStar } from 'react-icons/fa'

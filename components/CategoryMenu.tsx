@@ -30,14 +30,14 @@ const CategoryMenu = ({anchorEl, open, handleClick, handleClose}:MenuProps) => {
               <Grid item>
                 <Grid container spacing={6} direction='column'>
                   <Grid item>
-                    <Typography variant="h6" sx={{mb:'10px', pl:2}}>Shoe & Bag</Typography>
+                    <Typography variant="h6" sx={{mb:'10px', pl:2}}>Shoe &amp; Bag</Typography>
                     <MenuItem onClick={handleClose}>Casual Shoes</MenuItem>
                     <MenuItem onClick={handleClose}>Boots</MenuItem>
                     <MenuItem onClick={handleClose}>Sandals</MenuItem>
                     <MenuItem onClick={handleClose}>Slippers</MenuItem>
                   </Grid>
                   <Grid item>
-                    <Typography variant="h6" sx={{mb:'10px', pl:2}}>Luxury & designer</Typography>
+                    <Typography variant="h6" sx={{mb:'10px', pl:2}}>Luxury &amp; designer</Typography>
                     <MenuItem onClick={handleClose}>Towels</MenuItem>
                     <MenuItem onClick={handleClose}>Bathroom Scales</MenuItem>
                     <MenuItem onClick={handleClose}>Bath Mats</MenuItem>

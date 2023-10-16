@@ -1,13 +1,14 @@
 'use client'
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import Slider from "react-slick";
 import SlideOffer from "./SlideOffer";
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
+import { widthContext } from "@/context/WidthContext";
 
 
 const Carousel = () => {
-
   const [sliderRef, setSliderRef] = useState(null)
+  const pageWidth = useContext(widthContext)
 
   const settings = {
     arrows: false,
@@ -17,8 +18,9 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
-
   return (
+    <>
+    {pageWidth && pageWidth>990 &&
     <div className="slider" style={{position:'relative'}}>
     <div className='controls'>
           <FaChevronLeft onClick={sliderRef?.slickPrev} style={{
@@ -41,7 +43,8 @@ const Carousel = () => {
       <SlideOffer />
       <SlideOffer />
     </Slider>
-    </div>
+    </div>}
+    </>
   );
 };
 
