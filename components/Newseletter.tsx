@@ -1,10 +1,11 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import { BsSend } from 'react-icons/bs'
 import { GlobalStyles, InputAdornment } from '@mui/material'
+import { widthContext } from '@/context/WidthContext'
 
 const NewsletterStyles = <GlobalStyles styles={{
   '.css-1nydiq2-MuiGrid-root':{
@@ -23,11 +24,13 @@ const NewsletterStyles = <GlobalStyles styles={{
 }} />
 
 const Newseletter = () => {
+    const pageWidth = useContext(widthContext)
     const [email, setEmail] = useState('')
     return (
       <>
-        {NewsletterStyles}
+        {pageWidth && pageWidth>990 &&
         <Grid container spacing={5} justifyContent='center' alignItems='center' direction='column'>
+          {NewsletterStyles}
           <Grid item>
             <Typography variant="h4">Luminae Store</Typography>
           </Grid>
@@ -49,7 +52,7 @@ const Newseletter = () => {
             }}
             />
           </Grid>
-        </Grid>
+        </Grid>}
       </>
   )
 }

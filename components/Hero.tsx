@@ -12,7 +12,7 @@ const Hero = () => {
     const pageWidth = useContext(widthContext)
     return (
         <>
-        {pageWidth>990 &&
+        {pageWidth && pageWidth>990 &&
             <Grid container spacing={0} alignItems='center'>
             <Grid item lg={4} position='relative' overflow='hidden' sx={{height:'60vh'}}>
                 <Box component='div' sx={{width:'30vw', height:'60vh'}}>

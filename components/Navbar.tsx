@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CssBaseline, AppBar, Toolbar, InputAdornment, MenuItem, Divider } from "@/node_modules/@mui/material/index";
 import Image from "@/node_modules/next/image";
 import logo from '../public/Logo.png';
@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography'
+import { widthContext } from '@/context/WidthContext';
 
 
 
@@ -62,6 +63,7 @@ const languages:Array<keyValuePair> = [
   ];
 
 const Navbar = () => {
+    const pageWidth = useContext(widthContext)
     const [searchText, setSearchText] = useState('')
     const [category, setCategory] = useState('All Categories')
     const [currency, setCurrency] = useState('USD')
@@ -197,7 +199,7 @@ const Navbar = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item>
+                {pageWidth && pageWidth>990 && <Grid item>
                   <Grid container spacing={3}>
                     <Grid item>
                       <Image src='/Men cosmetic.png' width={50} height={50} alt='discount' />
@@ -207,7 +209,7 @@ const Navbar = () => {
                         <Typography variant="subtitle2">We extend exclusive discounts to our male clientele</Typography>
                     </Grid>
                   </Grid>
-                </Grid>
+                </Grid>}
                 <Grid item>
                   <Grid container spacing={10} alignItems='center'>
                     <Grid item>
