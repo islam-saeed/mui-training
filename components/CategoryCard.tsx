@@ -1,14 +1,16 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { Card, CardContent, CardMedia } from '@mui/material'
+import { widthContext } from '@/context/WidthContext'
 
 const CategoryCard = () => {
+  const pageWidth = useContext(widthContext)
   return (
     <Card sx={{display: 'flex'}}>
         <CardContent sx={{backgroundColor: '#BF2E3B', display: 'flex', justifyContent: 'center', alignItems: 'center', p:0}}>
-            <Grid container spacing={3} justifyContent='center' direction='column' sx={{width:'350px',height:'400px', px: 3}}>
+            <Grid container spacing={3} justifyContent='center' direction='column' sx={{width: pageWidth ? pageWidth>900 ? "350px" : "90vw" : "350px" ,height:'400px', px: 3}}>
               <Grid item>
                     <Typography variant="h4" sx={{color:'white', fontWeight: 'bold'}}>
                         Never-Ending Summer

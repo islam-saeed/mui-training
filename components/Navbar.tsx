@@ -1,18 +1,22 @@
 'use client'
 import React, { useContext, useState } from 'react'
-import { CssBaseline, AppBar, Toolbar, InputAdornment, MenuItem, Divider } from "@/node_modules/@mui/material/index";
+import { CssBaseline, AppBar, Toolbar, InputAdornment, MenuItem, Divider, Drawer, Box, List, ListItem, ListItemButton, ListItemText } from "@/node_modules/@mui/material/index";
 import Image from "@/node_modules/next/image";
 import logo from '../public/Logo.png';
 import SearchIcon from '@mui/icons-material/Search';
 import {AiFillInstagram} from "react-icons/ai"
 import {FaFacebookF, FaTelegramPlane, FaRegHeart} from "react-icons/fa"
 import {FaRegUser} from "react-icons/fa6"
+import {FiMenu} from "react-icons/fi"
 import {BsBag} from "react-icons/bs"
 import Grid from '@mui/material/Grid'
 import TextField from '@mui/material/TextField'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography'
 import { widthContext } from '@/context/WidthContext';
+
+
+
 
 
 
@@ -65,17 +69,19 @@ const languages:Array<keyValuePair> = [
 const Navbar = () => {
     const pageWidth = useContext(widthContext)
     const [searchText, setSearchText] = useState('')
+    const [anchor, setAnchor] = useState(false)
     const [category, setCategory] = useState('All Categories')
     const [currency, setCurrency] = useState('USD')
   return (
     <>
         <CssBaseline />
+        {pageWidth && pageWidth>620 &&
         <AppBar position="sticky" style={{
                 backgroundColor: 'white',
                 color:"black"
             }}>
             <Toolbar sx={{p:2, pb:5}}>
-                <Grid container spacing={2} alignItems="center" justifyContent="space-between">
+                  <Grid container spacing={2} alignItems="center" justifyContent="space-between">
                     <Grid item>
                         <Grid container spacing={2} alignItems="center" sx={{pt:2}}>
                             <Image src={logo} width={50} height={30} alt='logo' style={{marginRight: "10px"}}/>
@@ -234,7 +240,87 @@ const Navbar = () => {
                 </Grid>
               </Grid>
             </ThemeProvider>
-        </AppBar>
+        </AppBar>}
+        {pageWidth && pageWidth<620 &&
+          <nav>
+            <Grid container spacing={2} direction='column'>
+              <Grid item>
+                <Grid container justifyContent='space-between' alignItems='center' sx={{p:3}}>
+                  <Grid item>
+                    <FiMenu onClick={() => setAnchor(true)} style={{fontSize:'20px'}} />
+                    <Drawer
+                      anchor='left'
+                      open={anchor}
+                      onClose={() => setAnchor(false)}
+                    >
+                      <Box
+                        sx={{ width: 250 }}
+                        role="presentation"
+                      >
+                        <List>
+                          {['About us', 'Blog', 'Help & Support'].map((text, index) => (
+                            <ListItem key={text} disablePadding>
+                              <ListItemButton>
+                                <ListItemText primary={text} />
+                              </ListItemButton>
+                            </ListItem>
+                          ))}
+                        </List>
+                      </Box>
+                    </Drawer>
+                  </Grid>
+                  <Grid item>
+                    <Grid container spacing={2} alignItems="center" sx={{pt:2}}>
+                        <Image src={logo} width={50} height={30} alt='logo' style={{marginRight: "10px"}}/>
+                        <Typography variant="h5" style={{fontWeight: '700'}}>
+                            Luminae
+                        </Typography>
+                    </Grid>
+                  </Grid>
+                  <Grid item>
+                    <BsBag style={{fontSize:'20px'}} />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Grid container justifyContent='center' sx={{pb:2}}>
+                  <TextField
+                      id="search-products"
+                      label="Search Products"
+                      value={searchText}
+                      onChange={(e:any) => setSearchText(e.target.value)}
+                      InputProps={{
+                          endAdornment: (
+                              <InputAdornment position="end">
+                                  <TextField
+                                      id="outlined-select-currency"
+                                      select
+                                      defaultValue="All Categories"
+                                      variant="standard"
+                                      sx={{
+                                        p:1,
+                                        border: 'none'
+                                      }}
+                                      InputProps={{
+                                          disableUnderline: true,
+                                      }}
+                                      >
+                                      {categories.map((option:keyValuePair) => (
+                                          <MenuItem key={option.value} value={option.value}>
+                                          {option.label}
+                                          </MenuItem>
+                                      ))}
+                                  </TextField>
+                                  <Divider sx={{ height: 28, m: 1 }} orientation="vertical" />
+                                  <SearchIcon />
+                              </InputAdornment>
+                          )
+                      }}
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+          </nav>}
     </>
   )
 }

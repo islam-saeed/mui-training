@@ -28,7 +28,7 @@ const Newseletter = () => {
     const [email, setEmail] = useState('')
     return (
       <>
-        {pageWidth && pageWidth>990 &&
+        {pageWidth && pageWidth>620 &&
         <Grid container spacing={5} justifyContent='center' alignItems='center' direction='column'>
           {NewsletterStyles}
           <Grid item>
