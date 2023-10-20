@@ -155,7 +155,7 @@ const Navbar = () => {
                 <Grid item>
                     <Grid container spacing={3} alignItems='center'>
                         <Grid item>
-                            <Grid container spacing={1} direction='row' alignItems='center'>
+                            <Grid container spacing={1} direction='row' alignItems='center' sx={{pb:1}}>
                               <Image src='categories.svg' alt='categories' width={25} height={25} />
                               <Typography variant="h5" sx={{color:'white'}}>Categories</Typography>
                             </Grid>
@@ -167,7 +167,7 @@ const Navbar = () => {
                             defaultValue="USD"
                             variant="standard"
                             sx={{
-                              p:1,
+                              pb:2,
                               border: 'none'
                             }}
                             InputProps={{
@@ -188,7 +188,7 @@ const Navbar = () => {
                             defaultValue="English"
                             variant="standard"
                             sx={{
-                              p:1,
+                              pb:2,
                               border: 'none'
                             }}
                             InputProps={{
@@ -205,7 +205,7 @@ const Navbar = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                {pageWidth && pageWidth>990 && <Grid item>
+                {pageWidth && pageWidth>1060 && <Grid item>
                   <Grid container spacing={3}>
                     <Grid item>
                       <Image src='/Men cosmetic.png' width={50} height={50} alt='discount' />
@@ -219,19 +219,19 @@ const Navbar = () => {
                 <Grid item>
                   <Grid container spacing={10} alignItems='center'>
                     <Grid item>
-                      <Grid container spacing={3} alignItems='center' direction='row'>
+                      <Grid container spacing={3} alignItems='center' direction='row' sx={{pt:1}}>
                         <FaRegUser />
                         <Typography variant="body1" sx={{ml:1}}>Sign in</Typography>
                       </Grid>
                     </Grid>
                     <Grid item>
-                      <Grid container spacing={3} alignItems='center' direction='row'>
+                      <Grid container spacing={3} alignItems='center' direction='row' sx={{pt:1}}>
                         <FaRegHeart />
                         <Typography variant="body1" sx={{ml:1}}>Favorites</Typography>
                       </Grid>
                     </Grid>
                     <Grid item>
-                      <Grid container spacing={3} alignItems='center' direction='row'>
+                      <Grid container spacing={3} alignItems='center' direction='row' sx={{pt:1}}>
                         <BsBag />
                         <Typography variant="body1" sx={{ml:1}}>Cart</Typography>
                       </Grid>

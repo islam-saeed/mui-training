@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { MenuItem, TextField } from '@mui/material';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 import {FaFacebookF, FaTelegramPlane} from "react-icons/fa"
 import {AiFillInstagram} from "react-icons/ai"
 import Newseletter from './Newseletter';
+import { widthContext } from '@/context/WidthContext';
 
 
 
@@ -25,34 +26,43 @@ const languages:Array<keyValuePair> = [
 
 
 const Footer = () => {
+  const pageWidth = useContext(widthContext)
   return (
     <footer style={{position:'relative'}}>
         <Newseletter />
-        <Grid container spacing={15} justifyContent='center' sx={{backgroundColor:'#D1E2EB', height:'500px',pt:'100px', mt:'300px'}}>
+        <Grid container spacing={5} justifyContent='center' sx={{backgroundColor:'#D1E2EB',py:'200px', mt:'300px'}}>
           <Grid item>
-            <Typography variant="h6" sx={{mb:'20px'}}>Company</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>About Us</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Our Store</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Contact us</Typography>
+            <Grid container spacing={pageWidth ? pageWidth>700 ? 10 : 15 : 10} sx={{width:'450px'}}>
+              <Grid item>
+                <Typography variant="h6" sx={{mb:'20px'}}>Company</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>About Us</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Our Store</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Contact us</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6" sx={{mb:'20px'}}>Career Opportunities</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Selling Programs</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Advertise</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Cooperation </Typography>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item>
-            <Typography variant="h6" sx={{mb:'20px'}}>Career Opportunities</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Selling Programs</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Advertise</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Cooperation </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h6" sx={{mb:'20px'}}>How to Buy</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Making Payments</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Delivery Options</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Buyer Protection</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>New User Guide</Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="h6" sx={{mb:'20px'}}>Help</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Contacts Us</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>FAQ</Typography>
-            <Typography variant="subtitle1"  sx={{my:'15px'}}>Privacy Policy</Typography>
+            <Grid container spacing={pageWidth ? pageWidth>700 ? 10 : 15 : 10} sx={{width:'450px'}}>
+              <Grid item>
+                <Typography variant="h6" sx={{mb:'20px'}}>How to Buy</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Making Payments</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Delivery Options</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Buyer Protection</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>New User Guide</Typography>
+              </Grid>
+              <Grid item>
+                <Typography variant="h6" sx={{mb:'20px'}}>Help</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Contacts Us</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>FAQ</Typography>
+                <Typography variant="subtitle1"  sx={{my:'15px'}}>Privacy Policy</Typography>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
         <Grid container justifyContent='space-between' alignItems='center' sx={{p:3, borderBottom:'2px solid #d9d9d9', mb:5}}>

@@ -20,7 +20,6 @@ export default function Home() {
       <ExploreCategory />
       <Slider />
       <ExploreCategory />
-      <Footer />
     </main>
   )
 }

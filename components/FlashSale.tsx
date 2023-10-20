@@ -23,18 +23,26 @@ const FlashSale = () => {
             </Button>
           </Grid>
         </Grid>
-        <Grid container spacing={5} justifyContent='center' alignItems='center' sx={{my: 2}}>
-            <Grid item>
+        <Grid container spacing={5} justifyContent='center' alignItems='center'>
+            <Grid item sm={6} md={5} lg={3}>
+              <Grid container justifyContent='center' alignItems='center'>
                 <FlashSaleCard />
+              </Grid>
             </Grid>
-            <Grid item>
+            <Grid item sm={6} md={5} lg={3}>
+              <Grid container justifyContent='center' alignItems='center'>
                 <FlashSaleCard />
+              </Grid>
             </Grid>
-            <Grid item>
+            <Grid item sm={6} md={5} lg={3}>
+              <Grid container justifyContent='center' alignItems='center'>
                 <FlashSaleCard />
+              </Grid>
             </Grid>
-            <Grid item>
+            <Grid item sm={6} md={5} lg={3}>
+              <Grid container justifyContent='center' alignItems='center'>
                 <FlashSaleCard />
+              </Grid>
             </Grid>
         </Grid>
     </Grid>

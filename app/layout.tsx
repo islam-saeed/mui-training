@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import { WidthContext } from '@/context/WidthContext'
 import type { Metadata } from 'next'
@@ -23,6 +24,7 @@ export default function RootLayout({
         <WidthContext>
           <Header />
           {children}
+          <Footer />
         </WidthContext>
       </body>
     </html>
