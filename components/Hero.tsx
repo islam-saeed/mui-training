@@ -1,5 +1,5 @@
 'use client'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import Grid from '@mui/material/Grid'
 import Image from 'next/image'
 import Typography from '@mui/material/Typography'
@@ -10,14 +10,14 @@ import ExploreCategory from './ExploreCategory'
 
 
 const Hero = () => {
-    const pageWidth = useContext(widthContext)
+    const pageWidth: number = useContext(widthContext)
     return (
-        <>
+        <div style={{height:'60vh'}}>
         {pageWidth && pageWidth>620 &&
             <Grid container spacing={0} alignItems='center'>
-            <Grid item sm={4} position='relative' overflow='hidden' sx={{height:'60vh'}}>
+            <Grid item sm={4} position='relative' overflow='hidden' sx={{height:'100%'}}>
                 <Box component='div' sx={{width:'30vw', height:'60vh'}}>
-                    <Image src='https://source.unsplash.com/random' fill alt='offer image' />
+                    <Image src='https://source.unsplash.com/random' priority fill alt='offer image' />
                 </Box>
             </Grid>
             <Grid item sm={8} overflow='hidden' sx={{height:'60vh'}}>
@@ -33,7 +33,7 @@ const Hero = () => {
         {pageWidth && pageWidth<620 &&
             <ExploreCategory />
         }
-        </>
+        </div>
     )
 }
 

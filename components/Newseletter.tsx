@@ -24,7 +24,7 @@ const NewsletterStyles = <GlobalStyles styles={{
 }} />
 
 const Newseletter = () => {
-    const pageWidth = useContext(widthContext)
+    const pageWidth: number = useContext(widthContext)
     const [email, setEmail] = useState('')
     return (
       <>

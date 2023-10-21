@@ -67,7 +67,7 @@ const languages:Array<keyValuePair> = [
   ];
 
 const Navbar = () => {
-    const pageWidth = useContext(widthContext)
+    const pageWidth: number = useContext(widthContext)
     const [searchText, setSearchText] = useState('')
     const [anchor, setAnchor] = useState(false)
     const [category, setCategory] = useState('All Categories')

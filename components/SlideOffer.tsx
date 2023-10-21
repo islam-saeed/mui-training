@@ -18,7 +18,7 @@ const SlideOffer = () => {
         </Grid>
       </Grid>
       <Grid item>
-        <Image src='https://source.unsplash.com/300x300' width={300} height={300} alt='offer' />
+        <Image src='https://source.unsplash.com/300x300' priority width={300} height={300} alt='offer' />
       </Grid>
     </Grid>
   )

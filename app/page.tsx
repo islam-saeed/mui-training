@@ -5,7 +5,6 @@ import Hero from "@/components/Hero";
 import Top from "@/components/Top";
 import Trending from "@/components/Trending";
 import Slider from "@/components/Slider"
-import Footer from "@/components/Footer";
 
 
 

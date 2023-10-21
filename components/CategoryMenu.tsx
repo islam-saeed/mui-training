@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,12 +9,11 @@ import { Typography } from '@mui/material';
 type MenuProps = {
   anchorEl: null | HTMLElement,
   open: boolean,
-  handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
   handleClose: () => void
 }
 
 
-const CategoryMenu = ({anchorEl, open, handleClick, handleClose}:MenuProps) => {
+const CategoryMenu = ({anchorEl, open, handleClose}:MenuProps) => {
   return (
     <Menu
         id="basic-menu"

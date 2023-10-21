@@ -26,7 +26,7 @@ const languages:Array<keyValuePair> = [
 
 
 const Footer = () => {
-  const pageWidth = useContext(widthContext)
+  const pageWidth: number = useContext(widthContext)
   return (
     <footer style={{position:'relative'}}>
         <Newseletter />
@@ -81,7 +81,7 @@ const Footer = () => {
           </Grid>
           <Grid item>
             <TextField
-                id="languages-selection"
+                id="languages-selection-footer"
                 select
                 defaultValue="English"
                 variant="standard"

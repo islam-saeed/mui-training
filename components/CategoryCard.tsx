@@ -6,7 +6,7 @@ import { Card, CardContent, CardMedia } from '@mui/material'
 import { widthContext } from '@/context/WidthContext'
 
 const CategoryCard = () => {
-  const pageWidth = useContext(widthContext)
+  const pageWidth: number = useContext(widthContext)
   return (
     <Card sx={{display: 'flex'}}>
         <CardContent sx={{backgroundColor: '#BF2E3B', display: 'flex', justifyContent: 'center', alignItems: 'center', p:0}}>

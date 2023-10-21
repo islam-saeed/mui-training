@@ -13,8 +13,10 @@ export const WidthContext = ({children} : Props) => {
     useEffect(() => {
         setPageWidth(window.innerWidth)
     }, [pageWidth])
-    window.onresize = () => {
-        setPageWidth(window.innerWidth)
+    if (typeof window !== 'undefined') {
+        window.onresize = () => {
+            setPageWidth(window.innerWidth)
+        }
     }
     return (
         <widthContext.Provider value={pageWidth}>

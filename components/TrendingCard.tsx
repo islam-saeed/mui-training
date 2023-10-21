@@ -9,7 +9,7 @@ const theme=createTheme({
 })
 
 const TrendingCard = () => {
-  const pageWidth = useContext(widthContext)
+  const pageWidth: number = useContext(widthContext)
   return (
     <ThemeProvider theme={theme}>
         <Card elevation={3} sx={{width: pageWidth ? pageWidth>1250 ? "400px" : "90vw" : "400px", position:'relative'}}>

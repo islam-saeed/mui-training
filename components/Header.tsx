@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 
 const Header = () => {
   return (
-    <header>
+    <header style={{height:'200px'}}>
         <Navbar />
         
     </header>
