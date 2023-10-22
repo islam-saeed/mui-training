@@ -14,6 +14,7 @@ import TextField from '@mui/material/TextField'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography'
 import { widthContext } from '@/context/WidthContext';
+import NavbarAccordion from './NavbarAccordion';
 
 
 
@@ -257,8 +258,9 @@ const Navbar = () => {
                         sx={{ width: 250 }}
                         role="presentation"
                       >
-                        <List>
-                          {['About us', 'Blog', 'Help & Support'].map((text, index) => (
+                          <NavbarAccordion />
+                        <List sx={{mt:5}}>
+                          {['Login/Register','Help & Support' ,'About us', 'Blog'].map((text) => (
                             <ListItem key={text} disablePadding>
                               <ListItemButton>
                                 <ListItemText primary={text} />
