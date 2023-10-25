@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Top from "@/components/Top";
 import Trending from "@/components/Trending";
 import Slider from "@/components/Slider"
+import SlideOffer from "@/components/SlideOffer";
 
 
 
@@ -17,7 +18,11 @@ export default function Home() {
       <Trending />
       <Top />
       <ExploreCategory />
-      <Slider />
+      <Slider>
+        <SlideOffer />
+        <SlideOffer />
+        <SlideOffer />
+      </Slider>
       <ExploreCategory />
     </main>
   )

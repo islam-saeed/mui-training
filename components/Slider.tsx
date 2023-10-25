@@ -1,12 +1,17 @@
 'use client'
 import React, { useRef, useContext } from "react";
 import Slider from "react-slick";
-import SlideOffer from "./SlideOffer";
 import {FaChevronLeft, FaChevronRight} from 'react-icons/fa6'
 import { widthContext } from "@/context/WidthContext";
 
+type Props = {
+  children: string | JSX.Element | JSX.Element[] | (() => JSX.Element),
+  SlideNumber: number
+}
 
-const Carousel = () => {
+const Carousel = (props: Props) => {
+  const children: string | JSX.Element | JSX.Element[] | (() => JSX.Element) = props.children
+  const SlideNumber: number = props.SlideNumber
   const sliderRef = useRef<Slider>(null);
   const pageWidth: number = useContext(widthContext)
 
@@ -15,8 +20,8 @@ const Carousel = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: SlideNumber,
+    slidesToScroll: SlideNumber,
   };
   return (
     <>
@@ -39,9 +44,7 @@ const Carousel = () => {
           }} />
     </div>
     <Slider ref={sliderRef} {...settings}>
-      <SlideOffer />
-      <SlideOffer />
-      <SlideOffer />
+      {children}
     </Slider>
     </div>}
     </>
