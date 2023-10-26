@@ -25,9 +25,9 @@ const Carousel = (props: Props) => {
   };
   return (
     <>
-    {pageWidth && pageWidth>990 &&
-    <div className="slider" style={{position:'relative'}}>
-    <div className='controls'>
+      {pageWidth && pageWidth>990 &&
+      <div className="slider" style={{position:'relative'}}>
+        <div className='controls'>
           <FaChevronLeft onClick={sliderRef.current?.slickPrev} style={{
             position: 'absolute',
             top: '50%',
@@ -42,11 +42,11 @@ const Carousel = (props: Props) => {
             cursor: 'pointer',
             zIndex: '1'
           }} />
-    </div>
-    <Slider ref={sliderRef} {...settings}>
-      {children}
-    </Slider>
-    </div>}
+        </div>
+        <Slider ref={sliderRef} {...settings}>
+          {children}
+        </Slider>
+      </div>}
     </>
   );
 };

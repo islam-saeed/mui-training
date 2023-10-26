@@ -157,7 +157,7 @@ const Navbar = () => {
                     <Grid container spacing={3} alignItems='center'>
                         <Grid item>
                             <Grid container spacing={1} direction='row' alignItems='center' sx={{pb:1}}>
-                              <Image src='categories.svg' alt='categories' width={25} height={25} />
+                              <Image src='/categories.svg' alt='categories' width={25} height={25} />
                               <Typography variant="h5" sx={{color:'white'}}>Categories</Typography>
                             </Grid>
                         </Grid>
