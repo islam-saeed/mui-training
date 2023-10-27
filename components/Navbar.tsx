@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useState } from 'react'
-import { CssBaseline, AppBar, Toolbar, InputAdornment, MenuItem, Divider, Drawer, Box, List, ListItem, ListItemButton, ListItemText } from "@/node_modules/@mui/material/index";
+import { CssBaseline, AppBar, Toolbar, InputAdornment, MenuItem, Divider, Drawer, Box, List, ListItem, ListItemButton, ListItemText, Button } from "@/node_modules/@mui/material/index";
 import Image from "@/node_modules/next/image";
 import logo from '../public/Logo.png';
 import SearchIcon from '@mui/icons-material/Search';
@@ -15,6 +15,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography'
 import { widthContext } from '@/context/WidthContext';
 import NavbarAccordion from './NavbarAccordion';
+import CartDropdown from './CartDropdown';
 
 
 
@@ -73,6 +74,14 @@ const Navbar = () => {
     const [anchor, setAnchor] = useState(false)
     const [category, setCategory] = useState('All Categories')
     const [currency, setCurrency] = useState('USD')
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
   return (
     <>
         <CssBaseline />
@@ -233,8 +242,28 @@ const Navbar = () => {
                     </Grid>
                     <Grid item>
                       <Grid container spacing={3} alignItems='center' direction='row' sx={{pt:1}}>
-                        <BsBag />
-                        <Typography variant="body1" sx={{ml:1}}>Cart</Typography>
+                        <Button
+                            id="basic-button-cart"
+                            aria-controls={open ? 'basic-menu' : undefined}
+                            aria-haspopup="true"
+                            aria-expanded={open ? 'true' : undefined}
+                            onClick={handleClick}
+                            sx={{
+                              color:'white',
+                              textDecoration:'none',
+                              p:0,
+                              fontWeight:400,
+                              fontSize:'1rem',
+                              textTransform:'none',
+                              minWidth:'unset',
+                              letterSpacing:'unset'
+                            }}
+                            >
+                              
+                          <BsBag />
+                          <Typography variant="body1" sx={{ml:1}}>Cart</Typography>
+                        </Button>
+                        <CartDropdown anchorEl={anchorEl} open={open} handleClose={handleClose} />
                       </Grid>
                     </Grid>
                   </Grid>

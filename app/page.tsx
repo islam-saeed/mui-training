@@ -18,7 +18,7 @@ export default function Home() {
       <Trending />
       <Top />
       <ExploreCategory />
-      <Slider>
+      <Slider SlideNumber={1}>
         <SlideOffer />
         <SlideOffer />
         <SlideOffer />
