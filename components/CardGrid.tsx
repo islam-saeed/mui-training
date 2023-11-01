@@ -6,7 +6,7 @@ import React from 'react'
 
 const CardGrid = ({children}: {children: string | JSX.Element | JSX.Element[] | (() => JSX.Element)}) => {
   return (
-    <Box sx={{display: 'flex', gap: '50px', flexWrap: 'wrap', ml:'30vw'}}>
+    <Box sx={{display: 'flex', gap: '50px', flexWrap: 'wrap'}}>
         {children}
     </Box>
   )
