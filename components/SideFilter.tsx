@@ -1,4 +1,4 @@
-import { Typography, Grid, TextField, InputAdornment } from '@mui/material'
+import { Typography, Grid, TextField, InputAdornment, ListItem, ListItemButton, ListItemText, List } from '@mui/material'
 import React from 'react'
 import { BiCategoryAlt } from 'react-icons/bi'
 import SearchIcon from '@mui/icons-material/Search';
@@ -30,7 +30,44 @@ const SideFilter = () => {
             />
         </Grid>
         <Grid item>
-
+          <Typography variant="h5">Models</Typography>
+          <List>
+            <ListItem disablePadding secondaryAction={
+              <Typography variant="subtitle1">60</Typography>
+            }>
+              <ListItemButton>
+                <ListItemText primary="Short" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding secondaryAction={
+              <Typography variant="subtitle1">10</Typography>
+            }>
+              <ListItemButton>
+                <ListItemText primary="Mid-length" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding secondaryAction={
+              <Typography variant="subtitle1">56</Typography>
+            }>
+              <ListItemButton>
+                <ListItemText primary="Sweather" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding secondaryAction={
+              <Typography variant="subtitle1">80</Typography>
+            }>
+              <ListItemButton>
+                <ListItemText primary="Party Dresses" />
+              </ListItemButton>
+            </ListItem>
+            <ListItem disablePadding secondaryAction={
+              <Typography variant="subtitle1">100</Typography>
+            }>
+              <ListItemButton>
+                <ListItemText primary="Regular Fit" />
+              </ListItemButton>
+            </ListItem>
+          </List>
         </Grid>
         <Grid item>
 
