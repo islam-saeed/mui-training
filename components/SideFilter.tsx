@@ -1,9 +1,26 @@
-import { Typography, Grid, TextField, InputAdornment, ListItem, ListItemButton, ListItemText, List } from '@mui/material'
+'use client'
+import { Typography, Grid, TextField, InputAdornment, ListItem, ListItemButton, ListItemText, List, Checkbox, ListItemIcon } from '@mui/material'
 import React from 'react'
 import { BiCategoryAlt } from 'react-icons/bi'
 import SearchIcon from '@mui/icons-material/Search';
 
 const SideFilter = () => {
+
+  const [checked, setChecked] = React.useState([0]);
+
+  const handleToggle = (value: number) => () => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+
+    if (currentIndex === -1) {
+      newChecked.push(value);
+    } else {
+      newChecked.splice(currentIndex, 1);
+    }
+
+    setChecked(newChecked);
+  };
+
   return (
     <Grid container spacing={4} direction='column' sx={{p:10}}>
         <Grid item>
@@ -70,10 +87,34 @@ const SideFilter = () => {
           </List>
         </Grid>
         <Grid item>
-
+          <Typography variant="h5">style</Typography>
+          <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            {['Casual', 'Business casual', 'Bohemian', 'Minimalist', 'Uniqlo', 'Zara', 'Gucci', 'Mango', 'Ralph Lauren'].map((value, index) => {
+              const labelId = `${value}`;
+              return (
+                <ListItem
+                  key={value}
+                  disablePadding
+                >
+                  <ListItemButton role={undefined} onClick={handleToggle(index)} dense>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={checked.indexOf(index) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ 'aria-labelledby': labelId }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText id={labelId} primary={labelId} />
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
         </Grid>
         <Grid item>
-
+            
         </Grid>
         <Grid item>
 
