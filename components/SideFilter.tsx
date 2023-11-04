@@ -114,7 +114,20 @@ const SideFilter = () => {
           </List>
         </Grid>
         <Grid item>
-            
+          <Typography variant="h5">Color</Typography>
+          <Grid container spacing={3} sx={{mt:2}}>
+            {['#FF2E00', '#F7DDD0', '#66A5FF', '#FF9D41', '#FFD36C', '#4BCB88', '#9747FF', '#FF67DE', '#967C62', '#434343', '#BCBFC2', '#FFF'].map((color) => {
+              if(color==='#FFF'){
+              return (
+                <Grid item key={color}><div style={{width:'40px', height:'40px',cursor:'pointer', backgroundColor: color, borderRadius: '50%', border: '1px solid #D9D9D9'}}></div></Grid>
+                )
+              } else {
+                return (
+                  <Grid item key={color}><div style={{width:'40px', height:'40px',cursor:'pointer', backgroundColor: color, borderRadius: '50%'}}></div></Grid>
+                  )
+                }
+            })}
+          </Grid>
         </Grid>
         <Grid item>
 
