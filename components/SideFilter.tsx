@@ -1,8 +1,12 @@
 'use client'
-import { Typography, Grid, TextField, InputAdornment, ListItem, ListItemButton, ListItemText, List, Checkbox, ListItemIcon } from '@mui/material'
+import { Typography, Grid, TextField, InputAdornment, ListItem, ListItemButton, ListItemText, List, Checkbox, ListItemIcon, Box, Slider } from '@mui/material'
 import React from 'react'
 import { BiCategoryAlt } from 'react-icons/bi'
 import SearchIcon from '@mui/icons-material/Search';
+
+function valuetext(value: number) {
+  return `$${value}`;
+}
 
 const SideFilter = () => {
 
@@ -19,6 +23,16 @@ const SideFilter = () => {
     }
 
     setChecked(newChecked);
+  };
+
+
+
+  /* slider */
+
+  const [value, setValue] = React.useState<number[]>([20, 37]);
+
+  const handleChange = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number[]);
   };
 
   return (
@@ -130,13 +144,56 @@ const SideFilter = () => {
           </Grid>
         </Grid>
         <Grid item>
-
+          <Typography variant="h5">Size</Typography>
+          <Grid container spacing={4} sx={{mt:2}}>
+            {['2XS', 'XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'].map((size) => {
+              return (
+                <Grid item key={size}><div style={{width:'60px', height:'40px',cursor:'pointer', borderRadius: '8px', border: '1px solid #D9D9D9', color:'#555555', fontWeight:'bold', display:'flex', justifyContent:'center', alignItems:'center'}}>{size}</div></Grid>
+                )
+            })}
+          </Grid>
         </Grid>
         <Grid item>
-
+          <Typography variant="h5">Price</Typography>
+          <Grid container spacing={3} sx={{mt:2}}>
+            <Grid item>
+              <Grid container spacing={3} alignItems='center'>
+                <Grid item>
+                <div style={{width:'100px', height:'50px', fontSize:'20px',cursor:'pointer', borderRadius: '8px', border: '1px solid #D9D9D9', color:'#555555', display:'flex', justifyContent:'center', alignItems:'center'}}>$ {value[0]}</div>
+                </Grid>
+                <Grid item>
+                  <div style={{width:'60px', height:'5px', backgroundColor:'#D9D9D9', borderRadius:'10px'}}></div>
+                </Grid>
+                <Grid item>
+                <div style={{width:'100px', height:'50px', fontSize:'20px',cursor:'pointer', borderRadius: '8px', border: '1px solid #D9D9D9', color:'#555555', display:'flex', justifyContent:'center', alignItems:'center'}}>$ {value[1]}</div>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Box sx={{ width: 300 }}>
+                <Slider
+                  getAriaLabel={() => 'Price range'}
+                  value={value}
+                  onChange={handleChange}
+                  valueLabelDisplay="auto"
+                  getAriaValueText={valuetext}
+                />
+              </Box>
+            </Grid>
+            <Grid item>
+              <Grid container justifyContent='space-between' alignItems='center' sx={{width:'300px'}}>
+                <Grid item>
+                  <Typography variant="subtitle1">Minimum $200</Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="subtitle1">Maximum $500</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid item>
-
+          <Typography variant="h6">878 products found</Typography>
         </Grid>
     </Grid>
   )
