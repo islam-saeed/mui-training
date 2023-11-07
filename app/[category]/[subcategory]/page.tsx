@@ -11,11 +11,11 @@ const page = () => {
     <>
       <BreadCrumb />
       <CategoryHeader />
-      <Grid container justifyContent='space-between'>
-        <Grid item sm={4}>
+      <Grid container justifyContent='space-between' sx={{p:5}}>
+        <Grid item sm={5} md={4}>
           <SideFilter />
         </Grid>
-        <Grid item sm={8}>
+        <Grid item xs={12} sm={5} md={7} lg={8}>
           <CardGrid>
               <TopCard />
               <TopCard />
