@@ -1,8 +1,9 @@
 'use client'
-import React from 'react'
+import React, { useContext } from 'react'
 import Grid from '@mui/material/Grid'
 import { usePathname } from 'next/navigation'
 import { TextField, Typography, MenuItem } from '@mui/material'
+import { widthContext } from '@/context/WidthContext'
 
 
 type keyValuePair = {
@@ -22,8 +23,10 @@ const filter:Array<keyValuePair> = [
   ];
 
 const CategoryHeader = () => {
-    const pathname = usePathname()
-    let category = [...pathname.slice(1).split('/')][0]
+  const pageWidth: number = useContext(widthContext)
+  const pathname = usePathname()
+  let category = [...pathname.slice(1).split('/')][0]
+  if(pageWidth>600)
   return (
     <Grid container justifyContent='space-between' alignItems='center' sx={{height:'80px', backgroundColor:'#E9E9E9', px:8, mb:5}}>
         <Grid item>
@@ -57,6 +60,9 @@ const CategoryHeader = () => {
             </TextField>
         </Grid>
     </Grid>
+  )
+  else return(
+    <></>
   )
 }
 
