@@ -1,9 +1,10 @@
 'use client'
 import { Typography, Grid, TextField, InputAdornment, ListItem, ListItemButton, ListItemText, List, Checkbox, ListItemIcon, Box, Slider, Drawer } from '@mui/material'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BiCategoryAlt } from 'react-icons/bi'
 import SearchIcon from '@mui/icons-material/Search';
 import { widthContext } from '@/context/WidthContext';
+import { filterToggleContext } from '@/context/FilterToggleContext';
 
 function valuetext(value: number) {
   return `$${value}`;
@@ -14,7 +15,11 @@ const SideFilter = () => {
   const pageWidth: number = useContext(widthContext)
 
   const [checked, setChecked] = useState([0]);
-  const [anchor, setAnchor] = useState(false)
+  const [filterToggle, setFilterToggle] = useContext(filterToggleContext)
+  
+  useEffect(()=>{
+
+  })
 
 
   const handleToggle = (value: number) => () => {
@@ -41,9 +46,9 @@ const SideFilter = () => {
   };
 
 
-  const filterTypes = () => {
+  const filterTypes = (maxWidth: string) => {
     return (
-      <Grid container spacing={4} direction='column' sx={{pl:1, maxWidth:'30%'}}>
+      <Grid container spacing={4} direction='column' sx={{pl:1, maxWidth:maxWidth}}>
           <Grid item>
               <Grid container spacing={1} alignItems='center'>
                 <Grid item>
@@ -208,16 +213,16 @@ const SideFilter = () => {
 
   if(pageWidth>600)
     return (
-      filterTypes()
+      filterTypes('30%')
     )
     else return (
       <>
         <Drawer
           anchor='left'
-          open={anchor}
-          onClose={() => setAnchor(false)}
+          open={filterToggle}
+          onClose={() => setFilterToggle(false)}
         >
-          {filterTypes()}
+          {filterTypes('100vw')}
         </Drawer>
       </>
     )

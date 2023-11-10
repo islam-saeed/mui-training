@@ -5,6 +5,7 @@ import { BiFilterAlt } from 'react-icons/bi'
 import Button from '@mui/material/Button'
 import { Divider, MenuItem, TextField } from '@mui/material'
 import { widthContext } from '@/context/WidthContext'
+import { filterToggleContext } from '@/context/FilterToggleContext'
 
 
 type keyValuePair = {
@@ -26,6 +27,7 @@ const filter:Array<keyValuePair> = [
 
 const FilterButtons = () => {
   const pageWidth: number = useContext(widthContext)
+  const [filterToggle, setFilterToggle] = useContext(filterToggleContext)
   if(pageWidth<=600)
   return (
     <Grid container justifyContent='center' alignItems='center' sx={{border:'1px solid #aaa', p:1}}>
@@ -51,7 +53,7 @@ const FilterButtons = () => {
       </Grid>
       <Divider orientation="vertical" variant="middle" flexItem sx={{backgroundColor:'#aaa'}} />
       <Grid item>
-        <Button variant="text">
+        <Button variant="text" onClick={() => setFilterToggle(true)} >
           <BiFilterAlt /> 
           Filter
         </Button>
