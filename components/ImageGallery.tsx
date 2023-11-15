@@ -17,7 +17,7 @@ export default function ImageGallery() {
     <ImageList
       sx={{ width: 620, height: 620 }}
       variant="quilted"
-      cols={2}
+      cols={4}
       rowHeight={120}
     >
       {itemData.map((item) => (
@@ -42,7 +42,7 @@ const itemData = [
     img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
     title: 'Burger',
     rows: 5,
-    cols: 1,
+    cols: 3,
   },
   {
     img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',

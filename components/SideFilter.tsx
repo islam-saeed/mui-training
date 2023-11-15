@@ -171,7 +171,7 @@ const SideFilter = () => {
               <Grid item>
                 <Grid container spacing={3} alignItems='center'>
                   <Grid item>
-                  <div style={{width:'100px', height:'50px', fontSize:'20px',cursor:'pointer', borderRadius: '8px', border: '1px solid #D9D9D9', color:'#555555', display:'flex', justifyContent:'center', alignItems:'center'}}>$ {value[0]}</div>
+                    <div style={{width:'100px', height:'50px', fontSize:'20px',cursor:'pointer', borderRadius: '8px', border: '1px solid #D9D9D9', color:'#555555', display:'flex', justifyContent:'center', alignItems:'center'}}>$ {value[0]}</div>
                   </Grid>
                   <Grid item>
                     <div style={{width:'60px', height:'5px', backgroundColor:'#D9D9D9', borderRadius:'10px'}}></div>
