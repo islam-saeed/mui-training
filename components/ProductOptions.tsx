@@ -7,6 +7,7 @@ import { FaHeart } from "react-icons/fa6";
 
 
 
+
 const ProductOptions = () => {
   return (
     <Grid container spacing={3} direction='column'>
@@ -26,7 +27,7 @@ const ProductOptions = () => {
       <Grid item>
         <Grid container spacing={3} alignItems='center'>
           <Grid item>
-            <Typography variant="body1" sx={{fontWeight:'bold'}}>size</Typography>
+            <Typography variant="body1" sx={{fontWeight:'bold'}}>Size</Typography>
           </Grid>
           <Grid item>
             <Grid container spacing={3}>
@@ -40,7 +41,26 @@ const ProductOptions = () => {
         </Grid>
       </Grid>
       <Grid item>
-
+        <Grid container spacing={3} alignItems='center'>
+          <Grid item>
+            <Typography variant="body1" sx={{fontWeight:'bold'}}>Color</Typography>
+          </Grid>
+          <Grid item>
+            <Grid container spacing={3}>
+              {['#FF2E00', '#F7DDD0', '#66A5FF', '#FF9D41'].map((color) => {
+                if(color==='#FFF'){
+                return (
+                  <Grid item key={color}><div style={{width:'40px', height:'40px',cursor:'pointer', backgroundColor: color, borderRadius: '50%', border: '1px solid #D9D9D9'}}></div></Grid>
+                  )
+                } else {
+                  return (
+                    <Grid item key={color}><div style={{width:'40px', height:'40px',cursor:'pointer', backgroundColor: color, borderRadius: '50%'}}></div></Grid>
+                    )
+                  }
+              })}
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid item>
 
