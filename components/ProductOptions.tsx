@@ -2,11 +2,22 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { FaHeart } from "react-icons/fa6";
+import { MenuItem, TextField } from '@mui/material';
 
 
+type shippingOptions = {
+  value: string,
+  label: string,
+  deliveryTime: string
+}
 
-
-
+const shipping:Array<shippingOptions> = [
+  {
+    value: 'Free Shipping to Victoria teritory',
+    label: 'Free Shipping to Victoria teritory',
+    deliveryTime: "14-17 days"
+  }
+];
 
 const ProductOptions = () => {
   return (
@@ -63,7 +74,33 @@ const ProductOptions = () => {
         </Grid>
       </Grid>
       <Grid item>
-
+        <Grid container spacing={3} alignItems='center'>
+          <Grid item>
+          <Typography variant="body1" sx={{fontWeight:'bold'}}>Shipping</Typography>
+          </Grid>
+          <Grid item>
+            <TextField
+                id="outlined-select-shipping"
+                select
+                defaultValue="Free Shipping to Victoria teritory"
+                variant="standard"
+                sx={{
+                  p:1,
+                  border: 'none'
+                }}
+                InputProps={{
+                    disableUnderline: true,
+                }}
+                >
+                {shipping.map((option:shippingOptions) => (
+                    <MenuItem key={option.value} value={option.value}>
+                    <Typography variant="body1" sx={{fontWeight:'bold'}}>{option.label}</Typography>
+                    <Typography variant="subtitle1" sx={{fontWeight:'bold', color:'#9D9D9D'}}>Delivery Time: {option.deliveryTime}</Typography>
+                    </MenuItem>
+                ))}
+            </TextField>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid item>
 
