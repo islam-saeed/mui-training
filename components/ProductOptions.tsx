@@ -1,8 +1,9 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { FaHeart } from "react-icons/fa6";
-import { MenuItem, TextField } from '@mui/material';
+import { MenuItem, TextField, InputAdornment } from '@mui/material';
 
 
 type shippingOptions = {
@@ -20,6 +21,7 @@ const shipping:Array<shippingOptions> = [
 ];
 
 const ProductOptions = () => {
+  const [quantity, setQuantity] = useState('1')
   return (
     <Grid container spacing={3} direction='column'>
       <Grid item>
@@ -103,7 +105,40 @@ const ProductOptions = () => {
         </Grid>
       </Grid>
       <Grid item>
-
+        <Grid container spacing={3} alignItems='center'>
+          <Grid item>
+            <Typography variant="body1" sx={{fontWeight:'bold'}}>Quantity</Typography>
+          </Grid>
+          <Grid item>
+            <TextField
+                id="product-quantity"
+                value={quantity}
+                onChange={(e:any) => setQuantity(e.target.value)}
+                sx={{
+                  width: '100px',
+                  border: '1px solid #D9D9D9',
+                  borderRadius: '5px',
+                  color: '#555555',
+                  fontWeight: 'bold',
+                }}
+                InputProps={{
+                    endAdornment: (
+                        <InputAdornment position="end">
+                          <Typography onClick={()=>setQuantity((prev)=>String(parseInt(prev, 10)+1))} variant="subtitle1" sx={{fontWeight:'bold', fontSize:'22px', color:'#C4C4C4', cursor:'pointer'}}>+</Typography>
+                        </InputAdornment>
+                    ),
+                    startAdornment: (
+                        <InputAdornment position="start">
+                          <Typography onClick={()=>setQuantity((prev)=>prev === '0' ? '0' : String(parseInt(prev, 10)-1))} variant="subtitle1" sx={{fontWeight:'bold', fontSize:'22px', color:'#C4C4C4', cursor:'pointer'}}>-</Typography>
+                        </InputAdornment>
+                    )
+                }}
+            />
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" sx={{fontWeight:'bold'}}>50 available / 104 sold</Typography>
+          </Grid>
+        </Grid>
       </Grid>
       <Grid item>
 
