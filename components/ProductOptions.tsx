@@ -2,8 +2,8 @@
 import React, { useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
-import { FaHeart } from "react-icons/fa6";
-import { MenuItem, TextField, InputAdornment } from '@mui/material';
+import { FaHeart, FaPlus, FaMinus } from "react-icons/fa6";
+import { MenuItem, TextField, InputAdornment, Divider } from '@mui/material';
 
 
 type shippingOptions = {
@@ -124,24 +124,41 @@ const ProductOptions = () => {
                 InputProps={{
                     endAdornment: (
                         <InputAdornment position="end">
-                          <Typography onClick={()=>setQuantity((prev)=>String(parseInt(prev, 10)+1))} variant="subtitle1" sx={{fontWeight:'bold', fontSize:'22px', color:'#C4C4C4', cursor:'pointer'}}>+</Typography>
+                          <Typography onClick={()=>setQuantity((prev)=>String(parseInt(prev, 10)+1))} variant="subtitle1" sx={{fontWeight:'bold', fontSize:'15px', color:'#C4C4C4', cursor:'pointer'}}><FaPlus /></Typography>
                         </InputAdornment>
                     ),
                     startAdornment: (
                         <InputAdornment position="start">
-                          <Typography onClick={()=>setQuantity((prev)=>prev === '0' ? '0' : String(parseInt(prev, 10)-1))} variant="subtitle1" sx={{fontWeight:'bold', fontSize:'22px', color:'#C4C4C4', cursor:'pointer'}}>-</Typography>
+                          <Typography onClick={()=>setQuantity((prev)=>prev === '0' ? '0' : String(parseInt(prev, 10)-1))} variant="subtitle1" sx={{fontWeight:'bold', fontSize:'15px', color:'#C4C4C4', cursor:'pointer'}}><FaMinus /></Typography>
                         </InputAdornment>
                     )
                 }}
             />
           </Grid>
           <Grid item>
-            <Typography variant="subtitle1" sx={{fontWeight:'bold'}}>50 available / 104 sold</Typography>
+            <Typography variant="subtitle1" sx={{fontWeight:'bold', color:'#555'}}>50 available / 104 sold</Typography>
           </Grid>
         </Grid>
       </Grid>
       <Grid item>
-
+          <Grid container direction='column' justifyContent='space-around' sx={{backgroundColor:'#E9E9E9', py:1, px:2, height: 90}}>
+            <Grid item>
+              <Typography variant="subtitle1" sx={{fontWeight:'bold'}}>$79.98</Typography>
+            </Grid>
+            <Grid item>
+              <Divider sx={{ height: 3 }} orientation="horizontal" />
+            </Grid>
+            <Grid item>
+              <Grid container spacing={1}>
+                <Grid item>
+                  <div  style={{width:'20px', height:'20px', backgroundColor:'#c4c4c4', color:'white', borderRadius:'50%', display:'flex', justifyContent:'center', alignItems:'center'}}><FaPlus /></div>
+                </Grid>
+                <Grid item>
+                  <Typography variant="body2" sx={{fontWeight:'bold', fontSize:'12px', color:'#555'}}>Add shipping insurance for $9( declared value  only if the package gets lost, stolen or damaged.)</Typography>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
       </Grid>
       <Grid item>
 
