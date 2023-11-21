@@ -3,8 +3,15 @@ import React, { useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { FaHeart, FaPlus, FaMinus } from "react-icons/fa6";
-import { MenuItem, TextField, InputAdornment, Divider } from '@mui/material';
+import { MenuItem, TextField, InputAdornment, Divider, Button } from '@mui/material';
+import { styled } from '@mui/system';
 
+const CustomButton = styled(Button)`
+  &:hover {
+    background-color: #F5F5F5;
+    border-color: unset;
+  }
+`;
 
 type shippingOptions = {
   value: string,
@@ -161,7 +168,18 @@ const ProductOptions = () => {
           </Grid>
       </Grid>
       <Grid item>
-
+        <Grid container spacing={3}>
+          <Grid item>
+            <Button variant="contained" sx={{backgroundColor: '#4172DC', px:4, py:2}}>
+              SHOP NOW
+            </Button>
+          </Grid>
+          <Grid item>
+            <CustomButton variant="outlined" sx={{color: '#555', borderColor:'#555', px:4, py:2}}>
+              ADD TO CART
+            </CustomButton>
+          </Grid>
+        </Grid>
       </Grid>
     </Grid>
   )
