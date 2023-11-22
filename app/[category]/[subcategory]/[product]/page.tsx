@@ -4,21 +4,44 @@ import React from 'react'
 import Grid from '@mui/material/Grid'
 import ProductOptions from '@/components/ProductOptions'
 import ProductDetails from '@/components/ProductDetails'
+import Slider from "@/components/Slider"
+import ProductDetailsCard from '@/components/ProductDetailsCard'
+
 
 
 const page = () => {
   return (
     <>
-        <BreadCrumb />
-        <Grid container spacing={3}>
+        <Grid container spacing={3} sx={{px:5}}>
           <Grid item>
-            <ImageGallery />
+            <BreadCrumb />
           </Grid>
           <Grid item>
-            <ProductOptions />
+            <Grid container spacing={3}>
+              <Grid item>
+                <ImageGallery />
+              </Grid>
+              <Grid item>
+                <ProductOptions />
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <ProductDetails />
+          </Grid>
+          <Grid item>
+            <h3>You might also like</h3>
           </Grid>
         </Grid>
-        <ProductDetails />
+        <Slider SlideNumber={4}>
+          <ProductDetailsCard />
+          <ProductDetailsCard />
+          <ProductDetailsCard />
+          <ProductDetailsCard />
+          <ProductDetailsCard />
+          <ProductDetailsCard />
+          <ProductDetailsCard />
+        </Slider>
     </>
   )
 }
