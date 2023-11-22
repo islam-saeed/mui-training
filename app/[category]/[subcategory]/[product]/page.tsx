@@ -3,6 +3,8 @@ import ImageGallery from '@/components/ImageGallery'
 import React from 'react'
 import Grid from '@mui/material/Grid'
 import ProductOptions from '@/components/ProductOptions'
+import ProductDetails from '@/components/ProductDetails'
+
 
 const page = () => {
   return (
@@ -16,6 +18,7 @@ const page = () => {
             <ProductOptions />
           </Grid>
         </Grid>
+        <ProductDetails />
     </>
   )
 }
